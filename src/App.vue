@@ -3,10 +3,10 @@
     <!-- <h1>Guia Clientes</h1> -->
     <input type="text" v-model="clienteBruno.nome">
     <input type="text" v-model="clienteBruno.email">
-    <Cliente :cliente="clienteBruno"/>
-    <Cliente :cliente="clienteBruno"/>
-    <Cliente :cliente="clienteBruno"/>
-    <Cliente :cliente="clienteBruno"/>
+    <Cliente :cliente="clienteBruno" :showIdade="true"/>
+    <Cliente :cliente="clienteBruno" :showIdade="true"/>
+    <Cliente :cliente="clienteBruno" :showIdade="false"/>
+    <Cliente :cliente="clienteBruno" :showIdade="false"/>
     <!-- <hr>
       <h4>Lista de produtos!</h4>
     <hr> -->
