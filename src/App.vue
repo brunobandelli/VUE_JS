@@ -1,12 +1,14 @@
 <template>
   <div id="app">
     <!-- <h1>Guia Clientes</h1> -->
-    <input type="text" v-model="clienteBruno.nome">
-    <input type="text" v-model="clienteBruno.email">
-    <Cliente :cliente="clienteBruno" :showIdade="true"/>
-    <Cliente :cliente="clienteBruno" :showIdade="true"/>
-    <Cliente :cliente="clienteBruno" :showIdade="false"/>
-    <Cliente :cliente="clienteBruno" :showIdade="false"/>
+    <div v-for="(cliente,index) in clientes" :key="cliente.id">
+      <h4>{{index}}</h4>
+      <Cliente :cliente="cliente"/>
+      <hr>
+      <h4>Edição: </h4>
+      <input type="text" v-model="cliente.nome">
+      <input type="text" v-model="cliente.email">
+    </div>
     <!-- <hr>
       <h4>Lista de produtos!</h4>
     <hr> -->
@@ -28,7 +30,33 @@ export default {
         nome: "Bruno Bandelli",
         email: "Bruno@bandelli.com",
         idade: 26
-      }
+      },
+      clientes: [
+        {
+        id: 7,
+        nome: "Bruno",
+        email: "Bruno@bandelli.com",
+        idade: 26
+        },
+        {
+        id: 14,
+        nome: "Bandelli",
+        email: "Bandelli@bandelli.com",
+        idade: 21
+        },
+        {
+        id: 27,
+        nome: "Brulli",
+        email: "Brulli@bandelli.com",
+        idade: 18
+        },
+        {
+        id: 77,
+        nome: "Brunelli",
+        email: "Brunelli@bandelli.com",
+        idade: 17
+        }
+      ]
     }
   },
   components: {
