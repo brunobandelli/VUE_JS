@@ -5,6 +5,7 @@
         <p>Email: {{cliente.email}}</p>
         <p v-if="showIdade == true">Idade: {{cliente.idade}}</p>
         <p v-else>O usuario escondeu a idade!</p>
+        <button @click="mudarCor($event)">Mudar Cor!</button>
     </div>
 </template>
 
@@ -18,6 +19,12 @@ export default {
     props: {
         cliente: Object,
         showIdade: Boolean
+    },
+    methods: {
+        mudarCor: function($event){
+            console.log($event)
+            this.isPremium = !this.isPremium
+        }
     }
 }
 </script>
