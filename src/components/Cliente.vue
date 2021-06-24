@@ -2,7 +2,7 @@
     <div :class="{'cliente': !isPremium, 'cliente-premium': isPremium}">
         <h4>Nome: {{cliente.nome}}</h4>
         <hr>
-        <p>Email: {{cliente.email}}</p>
+        <p>Email: {{cliente.email | processarEmail}}</p>
         <p v-if="showIdade == true">Idade: {{cliente.idade}}</p>
         <p v-else>O usuario escondeu a idade!</p>
         <button @click="mudarCor($event)">Mudar Cor!</button>
@@ -34,6 +34,11 @@ export default {
         console.log("Testando para valer!")
         alert("Isso é um alert!")
       }
+    },
+    filters: {
+        processarEmail: function(value){
+            return "GUIADOPROGRAMADOR." + value.toUpperCase();
+        }
     }
 }
 </script>
