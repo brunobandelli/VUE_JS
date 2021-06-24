@@ -7,6 +7,7 @@
         <p v-else>O usuario escondeu a idade!</p>
         <button @click="mudarCor($event)">Mudar Cor!</button>
         <button @click="emitirEventoDelete">Deletar</button>
+        <h4>Id especial: {{idEspecial}}</h4>
     </div>
 </template>
 
@@ -38,6 +39,11 @@ export default {
     filters: {
         processarEmail: function(value){
             return "GUIADOPROGRAMADOR." + value.toUpperCase();
+        }
+    },
+    computed:{
+        idEspecial: function(){
+            return(this.cliente.email + this.cliente.nome + this.cliente.id).toUpperCase()
         }
     }
 }
