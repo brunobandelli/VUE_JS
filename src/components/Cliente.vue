@@ -28,8 +28,12 @@ export default {
         },
         emitirEventoDelete: function(){
             console.log("Emitindo do filho!")
-            this.$emit("meDelete",{curso: "Formação Node.js",emPromocao: true})
-        }
+            this.$emit("meDelete",{idDoCliente: this.cliente.id, curso: "Formação Node.js",emPromocao: true, component: this})
+        },
+      testar: function(){
+        console.log("Testando para valer!")
+        alert("Isso é um alert!")
+      }
     }
 }
 </script>

@@ -86,10 +86,15 @@ export default {
         this.deuErro = false;
       }
     },
-    deletarUsuario: function($event){
-      console.log("Recebendo evento!")
-      console.log($event)
-    }
+      deletarUsuario: function($event){
+        console.log("Recebendo evento!")
+        var id = $event.idDoCliente
+        var novoArray = this.clientes.filter(cliente => cliente.id != id);
+        this.clientes = novoArray
+        // $event.component.testar();
+        // console.log($event)
+        // $event.component.isPremium = true 
+      }
   }
 }
 </script>
