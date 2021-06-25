@@ -8,7 +8,7 @@
     <button @click="cadastrarUsuario">Cadastrar</button>
     <hr>
     <!-- <h1>Guia Clientes</h1> -->
-    <div v-for="(cliente,index) in clientes" :key="cliente.id">
+    <div v-for="(cliente,index) in orderClientes" :key="cliente.id">
       <h4>{{index}}</h4>
       <Cliente :cliente="cliente" @meDelete="deletarUsuario($event)"/>
       <!-- <hr>
@@ -26,6 +26,7 @@
 </template>
 
 <script>
+import _ from 'lodash'
 import Cliente from './components/Cliente'
 // import Produto from './components/Produto'
 export default {
@@ -95,6 +96,11 @@ export default {
         // console.log($event)
         // $event.component.isPremium = true 
       }
+  },
+  computed: {
+    orderClientes: function(){
+      return _.orderBy(this.clientes,['nome'],['asc']);
+    }
   }
 }
 </script>
